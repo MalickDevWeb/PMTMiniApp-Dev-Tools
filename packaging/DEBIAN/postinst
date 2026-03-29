@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+APP_NAME="PMTMiniApp Dev Tools"
+SOURCE_DESKTOP="/usr/share/applications/pmtminiapp-dev-tools.desktop"
+
+copy_shortcut() {
+  local home_dir="$1"
+  local user_name="$2"
+  local desktop_dir=""
+
+  if [[ -d "${home_dir}/Bureau" ]]; then
+    desktop_dir="${home_dir}/Bureau"
+  elif [[ -d "${home_dir}/Desktop" ]]; then
+    desktop_dir="${home_dir}/Desktop"
+  else
+    desktop_dir="${home_dir}/Desktop"
+    mkdir -p "${desktop_dir}" || true
+  fi
+
+  if [[ -d "${desktop_dir}" && -f "${SOURCE_DESKTOP}" ]]; then
+    install -m 755 "${SOURCE_DESKTOP}" "${desktop_dir}/${APP_NAME}.desktop"
+    chown "${user_name}:${user_name}" "${desktop_dir}/${APP_NAME}.desktop" || true
+  fi
+}
+
+if command -v update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
+fi
+
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+  gtk-update-icon-cache /usr/share/icons/hicolor >/dev/null 2>&1 || true
+fi
+
+while IFS=: read -r user_name _ user_id _ _ home_dir shell_path; do
+  if [[ "${user_id}" -ge 1000 && -d "${home_dir}" && "${shell_path}" != "/usr/sbin/nologin" && "${shell_path}" != "/bin/false" ]]; then
+    copy_shortcut "${home_dir}" "${user_name}"
+  fi
+done < /etc/passwd

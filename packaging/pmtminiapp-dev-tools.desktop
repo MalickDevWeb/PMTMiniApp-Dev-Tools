@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=PMTMiniApp Dev Tools
+Comment=Version Linux stable de PMTMiniApp Dev Tools
+Exec=/usr/bin/pmtminiapp-dev-tools
+Icon=pmtminiapp-dev-tools
+Terminal=false
+Categories=Development;IDE;
+StartupWMClass=wechat-devtools

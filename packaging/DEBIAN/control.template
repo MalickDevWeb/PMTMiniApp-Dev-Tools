@@ -1,0 +1,14 @@
+Package: pmtminiapp-dev-tools
+Version: @PACKAGE_VERSION@
+Section: devel
+Priority: optional
+Architecture: amd64
+Maintainer: MalickDevWeb <malickteuwdevweb@gmail.com>
+Depends: @DEPENDS@
+Conflicts: @UPSTREAM_PACKAGE@
+Replaces: @UPSTREAM_PACKAGE@
+Provides: pmtminiapp-dev-tools
+Homepage: https://github.com/MalickDevWeb/PMTMiniApp-Dev-Tools
+Description: PMTMiniApp Dev Tools launcher package for Linux
+ Custom Linux package for WeChat DevTools with PMTMiniApp branding,
+ desktop launcher, icon, and desktop shortcut installation.

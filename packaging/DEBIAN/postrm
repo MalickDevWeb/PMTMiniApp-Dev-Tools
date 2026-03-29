@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+APP_NAME="PMTMiniApp Dev Tools"
+
+remove_shortcut() {
+  local home_dir="$1"
+  rm -f "${home_dir}/Desktop/${APP_NAME}.desktop" "${home_dir}/Bureau/${APP_NAME}.desktop"
+}
+
+if [[ "${1:-}" == "remove" || "${1:-}" == "purge" ]]; then
+  while IFS=: read -r _ _ user_id _ _ home_dir _; do
+    if [[ "${user_id}" -ge 1000 && -d "${home_dir}" ]]; then
+      remove_shortcut "${home_dir}"
+    fi
+  done < /etc/passwd
+fi
+
+if command -v update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
+fi
+
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+  gtk-update-icon-cache /usr/share/icons/hicolor >/dev/null 2>&1 || true
+fi

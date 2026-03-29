@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+exec /opt/apps/io.github.msojocs.wechat-devtools-linux/files/bin/bin/wechat-devtools "$@"
