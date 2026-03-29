@@ -29,6 +29,21 @@ Si le double-clic ne marche pas, utilisez :
 sudo apt install ./pmtminiapp-dev-tools_2.01.2510290-1_amd64.deb
 ```
 
+## Framework recommande pour demarrer vite
+
+Le framework recommande pour un developpement rapide, simple et complet est :
+
+- depot principal : `https://github.com/MalickDevWeb/PMTMiniApp-Framwork`
+- generateur recommande pour aller le plus vite : `https://github.com/MalickDevWeb/PMTMiniApp-Framwork/tree/main/create-pmt-miniapp`
+- starter complet du framework : `https://github.com/MalickDevWeb/PMTMiniApp-Framwork/tree/main/from-scratch-app`
+
+La methode la plus simple :
+
+1. installez `PMTMiniApp Dev Tools`
+2. ouvrez le depot framework `PMTMiniApp-Framwork`
+3. utilisez `create-pmt-miniapp` pour generer un projet
+4. utilisez `from-scratch-app` comme base complete si vous voulez partir du framework entier
+
 ## Contenu du depot
 
 Ce depot contient :
