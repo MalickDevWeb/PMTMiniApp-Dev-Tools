@@ -1,6 +1,35 @@
 # PMTMiniApp-Dev-Tools
 
-Depot separe pour le lanceur Linux `PMTMiniApp Dev Tools`.
+Depot separe pour `PMTMiniApp Dev Tools` sur Linux.
+
+## Installation simple
+
+Pour un utilisateur final, le plus simple est :
+
+1. ouvrir la page `Releases` du depot
+2. telecharger le fichier `.deb`
+3. double-cliquer sur le fichier telecharge
+4. cliquer sur `Installer`
+
+Apres installation :
+
+- l'application apparait dans le menu sous `PMTMiniApp Dev Tools`
+- un raccourci Bureau est cree
+
+Si Ubuntu affiche un `X` rouge sur le raccourci Bureau :
+
+1. faites clic droit sur le raccourci
+2. choisissez `Autoriser le lancement`
+
+## Installation manuelle en ligne de commande
+
+Si le double-clic ne marche pas, utilisez :
+
+```bash
+sudo apt install ./pmtminiapp-dev-tools_2.01.2510290-1_amd64.deb
+```
+
+## Contenu du depot
 
 Ce depot contient :
 
@@ -17,16 +46,7 @@ Ce depot contient :
 - `scripts/build-deb.sh` : build du paquet `.deb`
 - `packaging/` : templates Debian
 
-## But
-
-Quand quelqu'un telecharge ce depot et lance le script :
-
-1. l'image est copiee dans le compte utilisateur
-2. WeChat DevTools Linux est installe dans `~/Applications`
-3. un lanceur menu est cree
-4. un raccourci Bureau `PMTMiniApp Dev Tools.desktop` est cree
-
-## Installation rapide
+## Installation depuis les scripts du depot
 
 ```bash
 chmod +x scripts/install-linux.sh
@@ -48,14 +68,14 @@ Le fichier genere sera dans :
 dist/pmtminiapp-dev-tools_2.01.2510290-1_amd64.deb
 ```
 
-Ensuite :
+Ensuite, pour publier sur GitHub :
 
 1. allez dans `GitHub Releases`
 2. ajoutez ce fichier `.deb`
 3. les utilisateurs pourront le telecharger
 4. sur Ubuntu, un double-clic ouvrira l'installateur de paquets
 
-## Resultat
+## Resultat apres installation
 
 Le script cree :
 
